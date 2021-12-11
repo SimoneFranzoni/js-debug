@@ -56,7 +56,7 @@ const cars = [
         manufacturer: 'Seat',
         model: 'Ibiza',
         type: 'metano'
-    },
+    }
     {
         manufacturer: 'Audi',
         model: 'R8',
@@ -64,14 +64,14 @@ const cars = [
     },
 ];
 
-const gasolineCars = cars.filter( (auto) => auto.type.toLowerCase() === 'benzina');
+const gasolineCars = cars.filter( (auto) >= auto.type === 'benzina');
 
 const dieselCars = cars.filter( (auto) => {
-    return auto.type.toLowerCase() === 'diesel';
+    auto.type === 'diesel';
 });
 
 const otherCars = cars.filter( (auto) => {
-    return auto.type.toLowerCase() !== 'benzina' && auto.type.toLowerCase() !== 'diesel';
+    return auto.type !== 'benzina' || auto.type !== 'diesel';
 });
 
 console.log('Auto a benzina');
@@ -85,3 +85,10 @@ console.log(dieselCars);
 console.log('Tutte le altre auto');
 console.log(otherCars);
 
+//la funzione vorrebbe stampare nel console sottoforma di array tutte le auto appartenenti adi un tipo
+// a riga 59 manca una , dopo la }, ciò porta un errore nella riga successiva
+// a riga 67 bisogna sostituire >= con => e aggiungere il contenuto di seguito tra parentesi graffe {}
+// auto.tyoe va sostituito con cars.type
+// la funzione non tiene conto delle maiuscole
+// mancano i return prima di auto.type a riga 70 e 67  
+// a riga 74 è prensente || a indicare il connettore logico or, ci vorrebbe invece && a indicare l'and 
